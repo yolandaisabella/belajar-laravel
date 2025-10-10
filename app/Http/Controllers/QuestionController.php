@@ -26,27 +26,21 @@ class QuestionController extends Controller
      */
     public function store(Request $request)
     {
-        // $data['nama']       = $request->nama;
-        // $data['email']      = $request->email;
-        // $data['pertanyaan'] = $request->pertanyaan;
-
-        // return view('home-question-respon', $data);
-
         $request->validate([
             'nama'       => 'required|min:5|max:50',
             'email'      => 'required|email',
             'pertanyaan' => 'required|min:10|max:300',
         ], [
-            'nama.required'         => "Nama Tidah boleh kosong",
-            'email.required'           => "Email Tidak valid",
-            'pertanyaan.required' => "pertanyaan Tidak valid",
+            'nama.required' => "Nama Tidah boleh kosong",
+            'email.required' => "Email Tidak valid"
         ]);
 
         $nama       = $request->input('nama');
         $email      = $request->input('email');
         $pertanyaan = $request->input('pertanyaan');
 
-        return view('home-question-respon', compact('nama', 'email', 'pertanyaan'));
+        //return view('home-question-respon', compact('nama', 'email', 'pertanyaan'));
+        return redirect()->back()->with('info', "Terimakasih $nama! Pertanyaan Kamu berhasil terkirim, dan akan segera kami tanggapi dan balas melalui $email");
 
     }
 

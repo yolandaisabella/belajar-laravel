@@ -3,6 +3,8 @@
 use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\MatakuliahController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\QuestionController;
 
 
 Route::get('/pcr', function () {
@@ -36,3 +38,7 @@ Route::get('/matakuliahupdate', [MatakuliahController::class, 'update']);
 Route::get('/matakuliahdestroy', [MatakuliahController::class, 'destroy']);
 
 Route::get('/matakuliah/{param1?}', [MahasiswaController::class, 'show']);
+Route::get('/home', [HomeController::class, 'index'])-> name('home');
+
+Route::post('question/store', [QuestionController::class, 'store'])
+            -> name('question.store');
