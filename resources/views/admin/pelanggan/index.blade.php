@@ -1,7 +1,9 @@
-@extends('admin.template')
+@extends('admin.layouts.app')
 @section('title', 'List Pelanggan')
 @section('content')
-<div class="py-4">
+
+{{--content--}}
+        <div class="py-4">
             <nav aria-label="breadcrumb" class="d-none d-md-inline-block">
                 <ol class="breadcrumb breadcrumb-dark breadcrumb-transparent">
                     <li class="breadcrumb-item">
@@ -83,6 +85,4 @@
                 </div>
             </div>
         </div>
-
-
 @endsection

@@ -30,14 +30,13 @@ class PelangganController extends Controller
     public function store(Request $request)
     {
         //dd($request->all());
-<<<<<<< HEAD
+
         $data['birthday'] = $request->birthday;
-=======
+
 
 		$data['first_name'] = $request->first_name;
 		$data['last_name'] = $request->last_name;
 		$data['birthday'] = $request->birthday;
->>>>>>> a58210b7d0732a51f273272c946a132b566c2bb8
 		$data['gender'] = $request->gender;
 		$data['email'] = $request->email;
 		$data['phone'] = $request->phone;
@@ -60,12 +59,9 @@ class PelangganController extends Controller
      */
     public function edit(string $id)
     {
-<<<<<<< HEAD
-        //
-=======
+
     $data['dataPelanggan'] = Pelanggan::findOrFail($id);
     return view('admin.pelanggan.edit', $data);
->>>>>>> a58210b7d0732a51f273272c946a132b566c2bb8
     }
 
     /**
@@ -73,9 +69,6 @@ class PelangganController extends Controller
      */
     public function update(Request $request, string $id)
     {
-<<<<<<< HEAD
-        //
-=======
         // $pelanggan_id = $id;
         // $pelanggan = Pelanggan::findOrFail($pelanggan_id);
 
@@ -99,7 +92,7 @@ class PelangganController extends Controller
         Pelanggan::where('pelanggan_id', $id)->update($data);
 
         return redirect()->route('pelanggan.index')->with('success', 'Perubahan Data Berhasil!');
->>>>>>> a58210b7d0732a51f273272c946a132b566c2bb8
+
     }
 
     /**
@@ -107,15 +100,9 @@ class PelangganController extends Controller
      */
     public function destroy(string $id)
     {
-<<<<<<< HEAD
-        //
-    }
-}
-=======
         $pelanggan = Pelanggan::findOrFail($id);
-        
+
         $pelanggan->delete();
         return redirect()->route('pelanggan.index')->with('success', 'Data Berhasil Dihapus!');
     }
 }
->>>>>>> a58210b7d0732a51f273272c946a132b566c2bb8
