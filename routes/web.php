@@ -55,5 +55,3 @@ Route::put('/pelanggan/{id}', [PelangganController::class, 'update'])->name('pel
 Route::resource('user', UserController::class);
 Route::get('/user/{id}/edit', [UserController::class, 'edit'])->name('user.edit');
 Route::put('/user/{id}', [UserController::class, 'update'])->name('user.update');
-Route::post('/users/create', [UserController::class, 'create'])->name('users.create');
-Route::post('/users/store', [UserController::class, 'store'])->name('users.store');
