@@ -403,7 +403,6 @@
                                             <td>{{ $item->gender }}</td>
                                             <td>{{ $item->email }}</td>
                                             <td>{{ $item->phone }}</td>
-                                            <td>{{($dataPelanggan->currentPage() - 1) * $dataPelanggan->perPage() + $item->iteration}}</td>
                                             <td>
                                                 <a href="{{ route('pelanggan.edit', $item->pelanggan_id) }}"
                                                     class="btn btn-info btn-sm">
