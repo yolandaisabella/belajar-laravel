@@ -9,6 +9,8 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PelangganController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\MultipleuploadsController;
 
 Route::get('/pcr', function () {
     return 'Selamat Datang di Website Kampus PCR!';
@@ -64,3 +66,18 @@ Route::get('/auth', function () {
 });
 Route::get('/auth', [AuthController::class, 'index']);
 Route::post('/auth/login', [AuthController::class, 'login']);
+
+Route::get('/multipleuploads', 'MultipleuploadsController@index')->name('uploads');
+Route::post('/save','MultipleuploadsController@store')->name('uploads.store');
+
+
+Route::put('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
+
+// Delete foto
+Route::delete('/profile/delete', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+// Display profile
+Route::get('/profile', [ProfileController::class, 'show'])->name('profile.show');
+
+// Edit profile
+Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
