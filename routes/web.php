@@ -67,9 +67,6 @@ Route::get('/auth', function () {
 Route::get('/auth', [AuthController::class, 'index']);
 Route::post('/auth/login', [AuthController::class, 'login']);
 
-Route::get('/multipleuploads', 'MultipleuploadsController@index')->name('uploads');
-Route::post('/save','MultipleuploadsController@store')->name('uploads.store');
-
 
 Route::put('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
 
@@ -114,6 +111,11 @@ Route::middleware('auth')->group(function(){
     //Khusus admin
     Route::middleware(['role:admin'])->prefix('admin')->group(function(){
         Route::resource('user', UserController::class);
-        Route::resource('pelanggan', PelangganControllerController::class);
+        Route::resource('pelanggan', PelangganController::class);
     });
 });
+
+
+
+Route::get('/multipleuploads', [MultipleuploadsController::class, 'index'])->name('uploads');
+Route::post('/save',[MultipleuploadsController::class, 'store'])->name('uploads.store');
